@@ -36,15 +36,23 @@ public class SecurityConfig {
         http.addFilterBefore((servletRequest, servletResponse, filterChain) -> {
             HttpServletRequest request = (HttpServletRequest) servletRequest;
             String authHeader = request.getHeader("Authorization");
+            String userHeader = request.getHeader("X-User");
 
             if (authHeader != null && authHeader.equals("Bearer " + ecomToken)) {
+                // Appel système avec token interne
                 SecurityContextHolder.getContext().setAuthentication(
                         new UsernamePasswordAuthenticationToken("system", null, List.of())
+                );
+            } else if (userHeader != null) {
+                // Appel avec utilisateur authentifié via Gateway
+                SecurityContextHolder.getContext().setAuthentication(
+                        new UsernamePasswordAuthenticationToken(userHeader, null, List.of())
                 );
             }
 
             filterChain.doFilter(servletRequest, servletResponse);
         }, UsernamePasswordAuthenticationFilter.class);
+
 
 
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
