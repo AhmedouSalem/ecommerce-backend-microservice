@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.nio.charset.StandardCharsets;
-
 
 @Slf4j
 @Component
@@ -30,38 +28,50 @@ public class JwtAuthFilter implements GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
+        String path = request.getURI().getPath();
         String authHeader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 
-        // 🔐 Aucun header → rejet
+        // 👉 Ignorer /authenticate et /sign-up
+        if (path.contains("/authenticate") || path.contains("/sign-up")) {
+            log.info("Public endpoint accessed: {}", path);
+            return chain.filter(exchange);
+        }
+
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            log.warn("Missing Authorization header");
+            log.warn("Missing or invalid Authorization header for path: {}", path);
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
 
         String token = authHeader.substring(7);
 
-        // ✅ Appel interne → accepté
         if (token.equals(systemToken)) {
             return chain.filter(exchange);
         }
 
-        // ✅ Sinon : appel utilisateur → vérifier JWT
         try {
+            // ...
             String username = jwtUtil.extractUsername(token);
-            exchange.mutate()
+
+            // 🛠️ Ici tu oubliais d'utiliser l'exchange modifié
+            ServerWebExchange mutatedExchange = exchange.mutate()
                     .request(
                             exchange.getRequest().mutate()
                                     .header("X-User", username)
                                     .build()
                     )
                     .build();
+
             log.info("Valid JWT for user: {}", username);
-            return chain.filter(exchange);
+
+            // ✅ Utilise mutatedExchange ici
+            return chain.filter(mutatedExchange);
+
         } catch (Exception e) {
             log.error("Invalid JWT", e);
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
     }
+
 }

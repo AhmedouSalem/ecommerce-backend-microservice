@@ -1,5 +1,8 @@
 package com.aryan.orderservice.model;
 
+import com.aryan.orderservice.dto.CartItemsDto;
+import com.aryan.orderservice.dto.CouponDto;
+import com.aryan.orderservice.dto.OrderDto;
 import com.aryan.orderservice.dto.UserDto;
 import com.aryan.orderservice.enums.OrderStatus;
 import jakarta.persistence.*;
@@ -24,7 +27,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String orderDescription;
+
+    @Column
+    private Date date;
+
     private Long amount;
+
+    private String address;
+
+    private String payment;
 
     private Long totalAmount;
 
@@ -36,8 +48,47 @@ public class Order {
 //    @JoinColumn(name = "user_id")
 //    private User user; // Assure-toi que l'entité `User` existe
 
-    private Long user_id;
+    private Long userId;
 
     @Transient
     private UserDto user;
+
+//    @OneToOne(cascade = CascadeType.MERGE)
+//    @JoinColumn(name = "coupon_id", referencedColumnName = "id")
+    private Long couponId;
+
+    @Transient
+    private CouponDto coupon;
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+//    private List<CartItems> cartItems;
+
+    @Transient
+    private List<CartItemsDto> cartItems;
+
+    private UUID trackingId;
+
+    public OrderDto getOrderDto() {
+
+        return OrderDto.builder()
+                .id(id)
+                .orderDescription(orderDescription)
+                .date(date)
+                .amount(amount)
+                .address(address)
+                .totalAmount(totalAmount)
+                .discount(discount)
+                .payment(payment)
+                .orderStatus(orderStatus)
+                .trackingId(trackingId)
+                .userId(userId)
+                .userName(user != null ? user.getName() : null)
+                .couponName(coupon != null ? coupon.getName() : null)
+                .couponId(couponId)
+                .couponCode(coupon != null ? coupon.getCode() : null)
+                .cartItems(cartItems != null ? cartItems : null)
+                .build(); /** À adapter pour épondre à la cart ***/
+
+    }
+
 }

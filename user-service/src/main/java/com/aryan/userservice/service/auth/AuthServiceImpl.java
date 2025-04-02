@@ -7,12 +7,11 @@ import com.aryan.userservice.enums.OrderStatus;
 import com.aryan.userservice.enums.UserRole;
 import com.aryan.userservice.model.User;
 import com.aryan.userservice.repository.UserRepository;
-import com.aryan.userservice.web.OrderClient;
+import com.aryan.userservice.feign.OrderClient;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -31,9 +30,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     private final OrderClient orderClient;
-
-//    @Autowired
-//    private final OrderRepository orderRepository;
 
     public UserDto createUser(SignupRequest signupRequest) {
         log.info("Creating user with email: {}", signupRequest.getEmail());

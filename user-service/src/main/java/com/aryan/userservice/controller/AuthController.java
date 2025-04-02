@@ -18,9 +18,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -69,6 +67,21 @@ public class AuthController {
 		} else {
 			log.warn("User not found: {}", authenticationRequest.getUsername());
 		}
+	}
+
+	@GetMapping("/api/users/{userID}")
+	public ResponseEntity<UserDto> getUserById(@PathVariable Long userID) {
+		Optional<User> user = userRepository.findById(userID);
+		if (user.isPresent()) {
+			UserDto userDto = new UserDto();
+			userDto.setId(userID);
+			userDto.setId(userID);
+			userDto.setEmail(user.get().getEmail());
+			userDto.setName(user.get().getName());
+			userDto.setUserRole(user.get().getRole());
+			return ResponseEntity.ok(userDto);
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 	@PostMapping("/sign-up")
