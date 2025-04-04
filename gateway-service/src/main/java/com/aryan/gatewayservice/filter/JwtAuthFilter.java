@@ -32,7 +32,7 @@ public class JwtAuthFilter implements GlobalFilter {
         String authHeader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 
         // 👉 Ignorer /authenticate et /sign-up
-        if (path.contains("/authenticate") || path.contains("/sign-up")) {
+        if (path.contains("/authenticate") || path.contains("/sign-up") || path.contains("/api/customer/command/tracking")) {
             log.info("Public endpoint accessed: {}", path);
             return chain.filter(exchange);
         }

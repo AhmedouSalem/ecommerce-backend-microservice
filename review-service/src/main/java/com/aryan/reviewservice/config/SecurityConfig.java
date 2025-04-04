@@ -1,4 +1,5 @@
-package com.aryan.cartservice.config;
+package com.aryan.reviewservice.config;
+
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -28,15 +29,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable());
 
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/customer/cart").authenticated()
-                .requestMatchers("/api/customer/cart/**").authenticated()
-                .requestMatchers("/api/customer/coupon/**").authenticated()
-                .requestMatchers("/api/customer/addition").authenticated()
-                .requestMatchers("/api/customer/deduction").authenticated()
-                .requestMatchers("/api/customer/placedOrder").authenticated()
-                .requestMatchers("/api/customer/myOrders/**").authenticated()
-                .requestMatchers("/api/customer/microservice/**").authenticated()
-                .requestMatchers("/api/customer/command/tracking/**").permitAll()
+                .requestMatchers("/api/customer/ordered-products/**").authenticated()
+                .requestMatchers("/api/customer/review").authenticated()
                 .anyRequest().denyAll()
         );
 

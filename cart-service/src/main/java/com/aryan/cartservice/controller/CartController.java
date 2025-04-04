@@ -1,9 +1,7 @@
 package com.aryan.cartservice.controller;
 
 
-import com.aryan.cartservice.dto.AddProductInCartDto;
-import com.aryan.cartservice.dto.OrderDto;
-import com.aryan.cartservice.dto.PlaceOrderDto;
+import com.aryan.cartservice.dto.*;
 import com.aryan.cartservice.exceptions.ValidationException;
 import com.aryan.cartservice.service.customer.cart.CartService;
 import lombok.RequiredArgsConstructor;
@@ -76,7 +74,7 @@ public class CartController {
 		return ResponseEntity.ok(cartService.getMyPlacedOrders(userId));
 	}
 
-	@GetMapping("/order/{trackingId}")
+	@GetMapping("/command/tracking/order/{trackingId}")
 	public ResponseEntity<OrderDto> searchOrderByTrackingId(@PathVariable UUID trackingId) {
 		log.info("Received request to search order by tracking ID: {}", trackingId);
 		OrderDto orderDto = cartService.searchOrderByTrackingId(trackingId);
@@ -86,6 +84,17 @@ public class CartController {
 		}
 		log.info("Found order for tracking ID: {}", trackingId);
 		return ResponseEntity.ok(orderDto);
+	}
+
+	@GetMapping("/microservice/cart/{orderId}")
+	public ResponseEntity<List<CartItemsDto>> getCartItemsByOrderId(@PathVariable Long orderId) {
+		log.info("Received request to get cart items by order ID: {}", orderId);
+		List<CartItemsDto> cartItemsDtoList = cartService.getCartItemsByOrderId(orderId);
+		if (cartItemsDtoList == null) {
+			log.warn("Cart items not found for order ID: {}", orderId);
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(cartItemsDtoList);
 	}
 
 }

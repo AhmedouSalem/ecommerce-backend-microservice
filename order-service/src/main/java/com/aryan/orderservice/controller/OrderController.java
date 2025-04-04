@@ -47,9 +47,19 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/api/microservice/orders/{id}")
-    public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
+//    @GetMapping("/api/microservice/orders/{id}")
+    public ResponseEntity<Order> findOrderById(@PathVariable Long id) {
         return ResponseEntity.ok(orderRepository.findById(id).orElseThrow());
+    }
+
+    @GetMapping("/api/microservice/orders/{id}")
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable Long id) {
+        if (orderRepository.findById(id).isPresent()) {
+            Order order = orderRepository.findById(id).get();
+
+            return ResponseEntity.ok(orderRepository.findById(id).orElseThrow().getOrderDto());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @GetMapping("/api/microservice/{userId}/{status}")
@@ -64,7 +74,7 @@ public class OrderController {
 
     @PutMapping("/api/microservice/addorder/orders")
     public ResponseEntity<?> addOrder(@RequestBody OrderDto orderDto) {
-        Order order = this.getOrderById(orderDto.getId()).getBody();
+        Order order = this.findOrderById(orderDto.getId()).getBody();
         order.setAddress(orderDto.getAddress());
         order.setOrderStatus(orderDto.getOrderStatus());
         order.setTotalAmount(orderDto.getTotalAmount());

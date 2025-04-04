@@ -2,6 +2,7 @@ package com.aryan.cartservice.service.customer.cart;
 
 
 import com.aryan.cartservice.dto.AddProductInCartDto;
+import com.aryan.cartservice.dto.CartItemsDto;
 import com.aryan.cartservice.dto.OrderDto;
 import com.aryan.cartservice.dto.PlaceOrderDto;
 import org.springframework.http.ResponseEntity;
@@ -25,4 +26,6 @@ public interface CartService {
 	List<OrderDto> getMyPlacedOrders(Long userId);
 	
 	OrderDto searchOrderByTrackingId(UUID trackingId);
+
+	List<CartItemsDto> getCartItemsByOrderId(Long orderId);
 }

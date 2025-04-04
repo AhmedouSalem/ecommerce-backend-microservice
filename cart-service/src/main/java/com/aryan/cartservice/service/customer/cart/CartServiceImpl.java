@@ -13,6 +13,7 @@ import com.aryan.cartservice.feign.UserFeignClient;
 import com.aryan.cartservice.model.CartItems;
 import com.aryan.cartservice.repository.CartItemsRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -149,6 +150,19 @@ public class CartServiceImpl implements CartService {
 		}
 
 		return orderDto;
+	}
+
+	public List<CartItemsDto> getCartItemsByOrderId(Long orderId) {
+		// Récupérer les éléments du panier (cart items)
+		List<CartItems> cartItemsList = cartItemsRepository.getCartItemsByOrderId(orderId);
+		List<CartItemsDto> cartItemsDtoList = new ArrayList<>();
+		for (CartItems cartItems : cartItemsList) {
+			ProductDto p = productFeignClient.getProductById(cartItems.getProductId()).getBody();
+			cartItems.setProduct(p);
+			cartItems.setUser(userFeignClient.getUserById(cartItems.getUserId()).getBody());
+			cartItemsDtoList.add(cartItems.getCartDto());
+		}
+		return  cartItemsDtoList;
 	}
 
 
@@ -348,13 +362,19 @@ public class CartServiceImpl implements CartService {
 		return orderResponse.getBody();
 	}
 
+	@Transactional
 	public OrderDto searchOrderByTrackingId(UUID trackingId) {
 		ResponseEntity<OrderDto> orderDtoResponseEntity = orderFeignClient.getByTracking(trackingId);
 		if (!orderDtoResponseEntity.getStatusCode().is2xxSuccessful() || orderDtoResponseEntity.getBody() == null) {
 			log.error("No active order found for user with ID: {}", trackingId);
 			return null;
 		}
+		UserDto userDto = userFeignClient.getUserById(orderDtoResponseEntity.getBody().getUserId()).getBody();
+		orderDtoResponseEntity.getBody().setUserName(userDto.getName());
+		log.info("Searched order for user with ID: {} and username : {} , orderStatus : {}", trackingId, userDto.getName(), orderDtoResponseEntity.getBody().getOrderStatus());
 		OrderDto orderDto = orderDtoResponseEntity.getBody();
+		orderDto.getOrderStatus();
+		log.info("OrderStatus: {}", orderDto.getOrderStatus());
 		return orderDto;
 	}
 
