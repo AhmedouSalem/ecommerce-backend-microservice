@@ -3,8 +3,10 @@ package com.aryan.productservice.controller.admin;
 
 import java.util.List;
 
+import com.aryan.productservice.dto.FAQDto;
 import com.aryan.productservice.dto.ProductDto;
 import com.aryan.productservice.services.admin.AdminProductService;
+import com.aryan.productservice.services.admin.faq.FAQService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +24,7 @@ public class AdminProductController {
 
 	@Autowired
 	private final AdminProductService adminProductService;
-//	private final FAQService faqService;
+	private final FAQService faqService;
 
 	@PostMapping("/product")
 	public ResponseEntity<ProductDto> addProduct(@ModelAttribute ProductDto productDto) throws Exception {
@@ -64,13 +66,13 @@ public class AdminProductController {
 		}
 	}
 
-//	@PostMapping("/faq/{productId}")
-//	public ResponseEntity<FAQDto> postFAQ(@PathVariable Long productId, @RequestBody FAQDto faqDto) {
-//		log.info("Received request to add FAQ for product with ID: {}", productId);
-//		FAQDto createdFAQ = faqService.postFAQ(productId, faqDto);
-//		log.info("FAQ added for product with ID: {}", productId);
-//		return ResponseEntity.status(HttpStatus.CREATED).body(createdFAQ);
-//	}
+	@PostMapping("/faq/{productId}")
+	public ResponseEntity<FAQDto> postFAQ(@PathVariable Long productId, @RequestBody FAQDto faqDto) {
+		log.info("Received request to add FAQ for product with ID: {}", productId);
+		FAQDto createdFAQ = faqService.postFAQ(productId, faqDto);
+		log.info("FAQ added for product with ID: {}", productId);
+		return ResponseEntity.status(HttpStatus.CREATED).body(createdFAQ);
+	}
 
 	@GetMapping("/product/{productId}")
 	public ResponseEntity<ProductDto> getProductById(@PathVariable Long productId) {

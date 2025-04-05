@@ -1,4 +1,4 @@
-package com.aryan.productservice.model;
+package com.aryan.productservice.feign;
 
 import com.aryan.productservice.config.FeignClientInterceptor;
 import com.aryan.productservice.dto.CategoryResponse;

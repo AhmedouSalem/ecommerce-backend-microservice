@@ -3,7 +3,7 @@ package com.aryan.productservice.services.admin;
 
 import com.aryan.productservice.dto.CategoryResponse;
 import com.aryan.productservice.dto.ProductDto;
-import com.aryan.productservice.model.CategoryClient;
+import com.aryan.productservice.feign.CategoryClient;
 import com.aryan.productservice.model.Product;
 import com.aryan.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;

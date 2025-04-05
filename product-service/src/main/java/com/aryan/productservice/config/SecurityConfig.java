@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/admin/product/**").authenticated()
                 .requestMatchers("/api/admin/products").authenticated()
                 .requestMatchers("/api/admin/search/**").authenticated()
+                .requestMatchers("/api/admin/faq/**").authenticated()
 
                 .requestMatchers("/api/customer/product/**").authenticated()
                 .requestMatchers("/api/customer/search/**").authenticated()
