@@ -97,4 +97,6 @@ public class AuthController {
 		log.info("User created with email: {}", signupRequest.getEmail());
 		return new ResponseEntity<>(userDto, HttpStatus.OK);
 	}
+
+
 }
