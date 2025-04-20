@@ -51,7 +51,7 @@ public class Review {
                 .rating(rating)
                 .description(description)
                 .returnedImg(img)
-                .productId(product.getId())
+                .productId(product != null ? product.getId() : null)
                 .userId(user.getId())
                 .username(user.getName())
                 .productName(product.getName())

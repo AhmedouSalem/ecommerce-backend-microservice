@@ -31,6 +31,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/customer/ordered-products/**").authenticated()
                 .requestMatchers("/api/customer/review").authenticated()
+                .requestMatchers("/api/customer/reviews/**").authenticated()
                 .anyRequest().denyAll()
         );
 

@@ -89,4 +89,18 @@ public class ReviewServiceImpl implements ReviewService {
         log.error("Failed to give review. Product or user not found.");
         return null;
     }
+
+    // AJOUTER UNE FONCTION DE RECHERCHE PAR ID DE PRODUIT 20 Avril 2025
+    @Transactional
+    public List<ReviewDto> findReviewByProductId(Long productId) {
+        List<Review> reviews =  reviewRepository.findAllByProductId(productId);
+        List<ReviewDto> reviewDtos = new ArrayList<>();
+        for (Review review : reviews) {
+            if (review.getUser() != null && review.getProduct() != null) {
+                ReviewDto reviewDto = review.getDto();
+                reviewDtos.add(reviewDto);
+            }
+        }
+        return reviewDtos;
+    }
 }

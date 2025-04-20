@@ -14,7 +14,7 @@ import java.util.List;
 public class ProductDetailDto {
 	private ProductDto productDto;
 	
-//	private List<ReviewDto> reviewDtoList;
+	private List<ReviewDto> reviewDtoList;
 //
-//	private List<FAQDto> faqDtoList;
+	private List<FAQDto> faqDtoList;
 }

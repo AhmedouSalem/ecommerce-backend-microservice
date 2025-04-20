@@ -8,10 +8,15 @@ import java.util.stream.Collectors;
 import com.aryan.productservice.dto.CategoryResponse;
 import com.aryan.productservice.dto.ProductDetailDto;
 import com.aryan.productservice.dto.ProductDto;
+import com.aryan.productservice.dto.ReviewDto;
 import com.aryan.productservice.feign.CategoryClient;
+import com.aryan.productservice.feign.ReviewClient;
+import com.aryan.productservice.model.FAQ;
 import com.aryan.productservice.model.Product;
+import com.aryan.productservice.repository.FAQRepository;
 import com.aryan.productservice.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -26,8 +31,9 @@ public class CustomerProductServiceImpl implements CustomerProductService {
 	private final ProductRepository productRepository;
 	@Autowired
 	private CategoryClient categoryClient;
-//	private final FAQRepository faqRepository;
-//	private final ReviewRepository reviewRepository;
+	private final FAQRepository faqRepository;
+	@Autowired
+	private final ReviewClient reviewClient;
 
 	public List<ProductDto> getAllProducts() {
 		log.info("Fetching all products");
@@ -52,20 +58,25 @@ public class CustomerProductServiceImpl implements CustomerProductService {
 	}
 
 	public ProductDetailDto getProductDetailById(Long productId) {
-//		log.info("Fetching product details for product with ID '{}'", productId);
-//		Optional<Product> optionalProduct = productRepository.findById(productId);
-//		if (optionalProduct.isPresent()) {
-//			List<FAQ> faqs = faqRepository.findAllByProductId(productId);
-//			List<Review> reviews = reviewRepository.findAllByProductId(productId);
-//
-//			ProductDetailDto productDetailDto = new ProductDetailDto();
-//			productDetailDto.setProductDto(optionalProduct.get().getDto());
-//			productDetailDto.setFaqDtoList(faqs.stream().map(FAQ::getFAQDto).collect(Collectors.toList()));
-//			productDetailDto.setReviewDtoList(reviews.stream().map(Review::getDto).collect(Collectors.toList()));
-//
-//			return productDetailDto;
-//		}
-//		log.error("Product with ID '{}' not found", productId);
+		log.info("Fetching product details for product with ID '{}'", productId);
+		Optional<Product> optionalProduct = productRepository.findById(productId);
+
+		if (optionalProduct.isPresent()) {
+			optionalProduct.get().setCategory(categoryClient.findById(optionalProduct.get().getCategoryId()));
+			List<FAQ> faqs = faqRepository.findAllByProductId(productId);
+			ResponseEntity<List<ReviewDto>> reviews = reviewClient.findReviewByProductId(productId);
+			if (!reviews.getStatusCode().is2xxSuccessful()) {
+				return  null;
+			}
+
+			ProductDetailDto productDetailDto = new ProductDetailDto();
+			productDetailDto.setProductDto(optionalProduct.get().getDto());
+			productDetailDto.setFaqDtoList(faqs.stream().map(FAQ::getFAQDto).collect(Collectors.toList()));
+			productDetailDto.setReviewDtoList(reviews.getBody());
+
+			return productDetailDto;
+		}
+		log.error("Product with ID '{}' not found", productId);
 		return null;
 	}
 

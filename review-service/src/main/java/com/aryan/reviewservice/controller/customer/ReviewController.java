@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -35,5 +36,16 @@ public class ReviewController {
 		}
 		log.info("Review submitted successfully for product with ID: {}", reviewDto.getProductId());
 		return ResponseEntity.status(HttpStatus.CREATED).body(submittedReview);
+	}
+
+	// AJOUTER UNE FONCTION DE RECHERCHE PAR ID DE PRODUIT 20 Avril 2025
+	@GetMapping("/reviews/{productId}")
+	public ResponseEntity<List<ReviewDto>> findReviewByProductId(@PathVariable Long productId) {
+		log.info("Received request to find reviews for product with ID: {}", productId);
+		List<ReviewDto> reviews = reviewService.findReviewByProductId(productId);
+		if (reviews == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(reviews);
 	}
 }
