@@ -1,0 +1,128 @@
+services:
+  mysql-user:
+    image: mysql:8
+    container_name: mysql-user
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-user-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+  mysql-order:
+    image: mysql:8
+    container_name: mysql-order
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: order-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-order-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+  mysql-category:
+    image: mysql:8
+    container_name: mysql-category
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: category-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql-category-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+  mysql-coupon:
+    image: mysql:8
+    container_name: mysql-coupon
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: coupon-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3310:3306"
+    volumes:
+      - mysql-coupon-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+  mysql-product:
+    image: mysql:8
+    container_name: mysql-product
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: product-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3311:3306"
+    volumes:
+      - mysql-product-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+  mysql-cart:
+    image: mysql:8
+    container_name: mysql-cart
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cart-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3312:3306"
+    volumes:
+      - mysql-cart-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+  mysql-review:
+    image: mysql:8
+    container_name: mysql-review
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: review-service-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3313:3306"
+    volumes:
+      - mysql-review-data:/var/lib/mysql
+    networks:
+      - ecom-network
+
+
+volumes:
+  mysql-user-data:
+  mysql-order-data:
+  mysql-category-data:
+  mysql-coupon-data:
+  mysql-product-data:
+  mysql-cart-data:
+  mysql-review-data:
+
+
+networks:
+  ecom-network:
+    name: ecom-network
+    driver: bridge
