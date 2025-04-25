@@ -28,7 +28,7 @@ pipeline {
 				dir('e-commerce-web') {
 					sh '''
                         npm install
-                        npm run build -- --configuration=development
+                        npm run build -- --configuration=development --no-watch --no-progress
                     '''
                 }
             }

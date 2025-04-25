@@ -6,7 +6,6 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
     "serve:ssr:E-commerce-web": "node dist/e-commerce-web/server/server.mjs"
   },
   "private": true,
