@@ -89,6 +89,15 @@ pipeline {
     		}
 		}
 
+		stage('SonarQube Analysis') {
+			steps {
+				withSonarQubeEnv('SonarQube') {
+					sh 'mvn sonar:sonar -Dsonar.projectKey=ecommerce-backend-microservices -Dsonar.host.url=http://sonarqube-server:9000'
+        		}
+    		}
+		}
+
+
 
         stage('Frontend Build') {
 			steps {
