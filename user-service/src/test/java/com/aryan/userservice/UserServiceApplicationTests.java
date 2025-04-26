@@ -3,8 +3,10 @@ package com.aryan.userservice;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.TestPropertySource;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = "ecom.token=test-token")
 @ComponentScan(basePackages = "com.aryan.userservice")
 class UserServiceApplicationTests {
 

@@ -2,11 +2,14 @@ package com.aryan.orderservice.services.admin.adminOrder;
 
 import com.aryan.orderservice.dto.AnalyticsResponse;
 import com.aryan.orderservice.dto.OrderDto;
+import com.aryan.orderservice.dto.UserDto;
 import com.aryan.orderservice.enums.OrderStatus;
+import com.aryan.orderservice.feign.UserClient;
 import com.aryan.orderservice.model.Order;
 import com.aryan.orderservice.repository.OrderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.ResponseEntity;
 
 import java.util.Date;
 import java.util.List;
@@ -21,28 +24,35 @@ class AdminOrderServiceImplTest {
 
     private OrderRepository orderRepository;
     private AdminOrderServiceImpl adminOrderService;
+    private UserClient userClient;
 
     @BeforeEach
     void setUp() {
         orderRepository = mock(OrderRepository.class);
-        adminOrderService = new AdminOrderServiceImpl(orderRepository);
+        userClient = mock(UserClient.class);
+        adminOrderService = new AdminOrderServiceImpl(orderRepository, userClient);
     }
 
     @Test
     void testGetAllPlacedOrders() {
-        // Préparation des données simulées
         Order order1 = mock(Order.class);
         Order order2 = mock(Order.class);
 
-        OrderDto dto1 = new OrderDto(); // tu peux ajouter des valeurs si besoin
+        OrderDto dto1 = new OrderDto();
         OrderDto dto2 = new OrderDto();
 
         when(order1.getOrderDto()).thenReturn(dto1);
         when(order2.getOrderDto()).thenReturn(dto2);
 
         List<Order> orders = List.of(order1, order2);
-        when(orderRepository.findAllByOrderStatusIn(List.of(OrderStatus.Placed, OrderStatus.Shipped, OrderStatus.Delivered)))
+        when(orderRepository.findAllByOrderStatusIn(List.of(
+                OrderStatus.Placed, OrderStatus.Shipped, OrderStatus.Delivered)))
                 .thenReturn(orders);
+
+        // Mock de userClient
+        UserDto userDto = new UserDto();
+        ResponseEntity<UserDto> responseEntity = ResponseEntity.ok(userDto);
+        when(userClient.getUserById(anyLong())).thenReturn(responseEntity);
 
         // Exécution
         List<OrderDto> result = adminOrderService.getAllPlacedOrders();
@@ -52,6 +62,7 @@ class AdminOrderServiceImplTest {
         assertTrue(result.contains(dto1));
         assertTrue(result.contains(dto2));
         verify(orderRepository, times(1)).findAllByOrderStatusIn(anyList());
+        verify(userClient, times(2)).getUserById(anyLong()); // chaque order
     }
 
     @Test
@@ -94,7 +105,7 @@ class AdminOrderServiceImplTest {
 
     @Test
     void testCalculateAnalytics() {
-        AdminOrderServiceImpl spyService = spy(new AdminOrderServiceImpl(orderRepository));
+        AdminOrderServiceImpl spyService = spy(new AdminOrderServiceImpl(orderRepository, userClient));
 
         // Mock du comportement interne
         LocalDate currentDate = LocalDate.now();

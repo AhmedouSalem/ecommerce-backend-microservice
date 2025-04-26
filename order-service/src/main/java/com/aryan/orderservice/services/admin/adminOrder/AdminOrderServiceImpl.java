@@ -1,12 +1,15 @@
 package com.aryan.orderservice.services.admin.adminOrder;
 import com.aryan.orderservice.dto.AnalyticsResponse;
 import com.aryan.orderservice.dto.OrderDto;
+import com.aryan.orderservice.dto.UserDto;
 import com.aryan.orderservice.enums.OrderStatus;
+import com.aryan.orderservice.feign.UserClient;
 import com.aryan.orderservice.model.Order;
 import com.aryan.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,9 +22,19 @@ import java.util.stream.Collectors;
 public class AdminOrderServiceImpl implements AdminOrderService {
     @Autowired
     private final OrderRepository orderRepository;
+    @Autowired
+    private final UserClient    userClient;
 
     public List<OrderDto> getAllPlacedOrders() {
         List<Order> orderList = orderRepository.findAllByOrderStatusIn(List.of(OrderStatus.Placed, OrderStatus.Shipped, OrderStatus.Delivered));
+        for (Order order : orderList) {
+            ResponseEntity<UserDto> userDto = userClient.getUserById(order.getUserId());
+            if (userDto.getStatusCode().is2xxSuccessful()) {
+                if (userDto.getBody() != null) {
+                    order.setUser(userDto.getBody());
+                }
+            }
+        }
         return orderList.stream().map(Order::getOrderDto).collect(Collectors.toList());
     }
 
