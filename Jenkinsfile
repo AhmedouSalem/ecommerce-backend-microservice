@@ -20,17 +20,75 @@ pipeline {
 
         stage('Backend Build') {
 			steps {
-				echo "🔨 Building backend microservices..."
-                sh 'mvn clean package -DskipTests=true'
-            }
-        }
+				dir('config-service') {
+					sh 'mvn clean package -DskipTests=true'
+				}
+        		dir('discovery-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('gateway-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('user-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('order-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('cart-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('Category-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('product-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('coupon-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+        		dir('review-service') {
+					sh 'mvn clean package -DskipTests=true'
+        		}
+    		}
+		}
+
 
         stage('Backend Tests') {
 			steps {
-				echo "🧪 Running backend tests..."
-                sh 'mvn test'
-            }
-        }
+				dir('config-service') {
+					sh 'mvn test'
+        		}
+        		dir('discovery-service') {
+					sh 'mvn test'
+        		}
+        		dir('gateway-service') {
+					sh 'mvn test'
+        		}
+        		dir('user-service') {
+					sh 'mvn test'
+        		}
+        		dir('order-service') {
+					sh 'mvn test'
+        		}
+        		dir('cart-service') {
+					sh 'mvn test'
+        		}
+        		dir('Category-service') {
+					sh 'mvn test'
+        		}
+        		dir('product-service') {
+					sh 'mvn test'
+        		}
+        		dir('coupon-service') {
+					sh 'mvn test'
+        		}
+        		dir('review-service') {
+					sh 'mvn test'
+        			}
+    		}
+		}
+
 
         stage('Frontend Build') {
 			steps {
