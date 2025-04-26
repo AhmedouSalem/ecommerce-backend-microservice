@@ -56,15 +56,40 @@ pipeline {
 		stage('SonarQube Analysis') {
 			steps {
 				withSonarQubeEnv('SonarQube') {
-					sh '''
-            		mvn sonar:sonar \
-                		-Dsonar.projectKey=ecommerce-backend-microservices \
-                		-Dsonar.host.url=http://sonarqube-server:9000 \
-                		-Dsonar.coverage.jacoco.xmlReportPaths=/shared/jacoco.xml
-            		'''
+					dir('config-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('discovery-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('gateway-service') {
+						sh 'mvn sonar:sonar'
+            		}
+           			dir('user-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('order-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('cart-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('Category-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('product-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('coupon-service') {
+						sh 'mvn sonar:sonar'
+            		}
+            		dir('review-service') {
+						sh 'mvn sonar:sonar'
+            		}
         		}
     		}
 		}
+
 
         stage('Frontend Build') {
 			steps {
