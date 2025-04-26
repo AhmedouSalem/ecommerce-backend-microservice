@@ -105,21 +105,43 @@ pipeline {
         stage('Docker Build') {
 			steps {
 				echo "🐳 Building Docker images version ${VERSION}..."
-                sh '''
-                    docker build -t $DOCKER_IMAGE_PREFIX-config-service:$VERSION ./config-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-discovery-service:$VERSION ./discovery-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-gateway-service:$VERSION ./gateway-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-user-service:$VERSION ./user-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-order-service:$VERSION ./order-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-cart-service:$VERSION ./cart-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-category-service:$VERSION ./Category-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-product-service:$VERSION ./product-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-coupon-service:$VERSION ./coupon-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-review-service:$VERSION ./review-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-frontend:$VERSION ./e-commerce-web
-                '''
-            }
-        }
+        		sh '''
+            		echo "Building config-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-config-service:$VERSION ./config-service
+
+            		echo "Building discovery-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-discovery-service:$VERSION ./discovery-service
+
+            		echo "Building gateway-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-gateway-service:$VERSION ./gateway-service
+
+            		echo "Building user-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-user-service:$VERSION ./user-service
+
+            		echo "Building order-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-order-service:$VERSION ./order-service
+
+            		echo "Building cart-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-cart-service:$VERSION ./cart-service
+
+            		echo "Building category-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-category-service:$VERSION ./Category-service
+
+            		echo "Building product-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-product-service:$VERSION ./product-service
+
+            		echo "Building coupon-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-coupon-service:$VERSION ./coupon-service
+
+            		echo "Building review-service..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-review-service:$VERSION ./review-service
+
+            		echo "Building frontend (Angular)..."
+            		docker build -t $DOCKER_IMAGE_PREFIX-frontend:$VERSION ./e-commerce-web
+        		'''
+    		}
+		}
+
     }
 
     post {
