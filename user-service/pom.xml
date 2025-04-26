@@ -149,14 +149,14 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
                 <executions>
-                    <!-- Activer JaCoCo pour instrumenter les classes -->
+                    <!-- Préparer l'agent JaCoCo avant les tests -->
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    <!-- Générer un rapport JaCoCo après les tests -->
+                    <!-- Générer le rapport XML après les tests -->
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -166,7 +166,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
             <plugin>
                 <groupId>org.springframework.boot</groupId>

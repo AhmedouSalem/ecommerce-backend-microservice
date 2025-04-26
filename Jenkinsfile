@@ -18,74 +18,38 @@ pipeline {
             }
         }
 
-        stage('Backend Build') {
+        stage('Backend Build && Test') {
 			steps {
 				dir('config-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=true'
 				}
         		dir('discovery-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=true'
         		}
         		dir('gateway-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=true'
         		}
         		dir('user-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
         		dir('order-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
         		dir('cart-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
         		dir('Category-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
         		dir('product-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
         		dir('coupon-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
         		dir('review-service') {
-					sh 'mvn clean package -DskipTests=true'
+					sh 'mvn clean install -DskipTests=false'
         		}
-    		}
-		}
-
-
-        stage('Backend Tests') {
-			steps {
-				dir('config-service') {
-					sh 'mvn test'
-        		}
-        		dir('discovery-service') {
-					sh 'mvn test'
-        		}
-        		dir('gateway-service') {
-					sh 'mvn test'
-        		}
-        		dir('user-service') {
-					sh 'mvn test'
-        		}
-        		dir('order-service') {
-					sh 'mvn test'
-        		}
-        		dir('cart-service') {
-					sh 'mvn test'
-        		}
-        		dir('Category-service') {
-					sh 'mvn test'
-        		}
-        		dir('product-service') {
-					sh 'mvn test'
-        		}
-        		dir('coupon-service') {
-					sh 'mvn test'
-        		}
-        		dir('review-service') {
-					sh 'mvn test'
-        			}
     		}
 		}
 
