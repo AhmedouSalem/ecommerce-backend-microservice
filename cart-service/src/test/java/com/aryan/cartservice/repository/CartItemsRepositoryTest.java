@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = Replace.NONE) // Pour forcer l'utilisation de H2 en mémoire
+//@AutoConfigureTestDatabase(replace = Replace.NONE) // Pour forcer l'utilisation de H2 en mémoire
 public class CartItemsRepositoryTest {
 
     @Autowired
