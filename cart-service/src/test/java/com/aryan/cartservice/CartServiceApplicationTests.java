@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(properties = "ecom.token=test-token")
+@SpringBootTest(properties = {
+        "spring.profiles.active=test"
+})
 class CartServiceApplicationTests {
 
     @Test

@@ -66,25 +66,25 @@ pipeline {
 					sh 'mvn test'
         		}
         		dir('user-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         		}
         		dir('order-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         		}
         		dir('cart-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         		}
         		dir('Category-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         		}
         		dir('product-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         		}
         		dir('coupon-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         		}
         		dir('review-service') {
-					sh 'mvn test -Dspring.profiles.active=test'
+					sh 'mvn test'
         			}
     		}
 		}
