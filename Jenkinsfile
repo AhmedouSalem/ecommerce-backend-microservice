@@ -60,7 +60,7 @@ pipeline {
             		mvn sonar:sonar \
                 		-Dsonar.projectKey=ecommerce-backend-microservices \
                 		-Dsonar.host.url=http://sonarqube-server:9000 \
-                		-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                		-Dsonar.coverage.jacoco.xmlReportPaths=/shared/jacoco.xml
             		'''
         		}
     		}
