@@ -6,12 +6,9 @@ pipeline {
         nodejs 'Node_23'
     }
 
-    parameters {
-		string(name: 'VERSION', defaultValue: 'v1.0.0', description: 'Version des images Docker')
-    }
-
     environment {
 		DOCKER_IMAGE_PREFIX = "ecom"
+        VERSION = "v1.0.${BUILD_NUMBER}"
     }
 
     stages {
@@ -49,7 +46,7 @@ pipeline {
 
         stage('Docker Build') {
 			steps {
-				echo "🐳 Building Docker images for all services with version ${params.VERSION}..."
+				echo "🐳 Building Docker images version ${VERSION}..."
                 sh '''
                     docker build -t $DOCKER_IMAGE_PREFIX-config-service:$VERSION ./config-service
                     docker build -t $DOCKER_IMAGE_PREFIX-discovery-service:$VERSION ./discovery-service
@@ -57,7 +54,7 @@ pipeline {
                     docker build -t $DOCKER_IMAGE_PREFIX-user-service:$VERSION ./user-service
                     docker build -t $DOCKER_IMAGE_PREFIX-order-service:$VERSION ./order-service
                     docker build -t $DOCKER_IMAGE_PREFIX-cart-service:$VERSION ./cart-service
-                    docker build -t $DOCKER_IMAGE_PREFIX-category-service:$VERSION ./category-service
+                    docker build -t $DOCKER_IMAGE_PREFIX-category-service:$VERSION ./Category-service
                     docker build -t $DOCKER_IMAGE_PREFIX-product-service:$VERSION ./product-service
                     docker build -t $DOCKER_IMAGE_PREFIX-coupon-service:$VERSION ./coupon-service
                     docker build -t $DOCKER_IMAGE_PREFIX-review-service:$VERSION ./review-service
