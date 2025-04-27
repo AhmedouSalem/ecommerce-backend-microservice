@@ -1,7 +1,8 @@
 services:
   config-service:
-    build: ./config-service
-    image: config-service:v1.0.0
+#    build: ./config-service
+#    image: config-service:v1.0.0
+    image: ecom-config-service:v1.0.${BUILD_NUMBER}
     container_name: config-service
     ports:
       - "9999:9999"
@@ -9,8 +10,9 @@ services:
       - ecom-network
 
   discovery-service:
-    build: ./discovery-service
-    image: discovery-service:v1.0.0
+#    build: ./discovery-service
+#    image: discovery-service:v1.0.0
+    image: ecom-discovery-service:v1.0.${BUILD_NUMBER}
     container_name: discovery-service
     ports:
       - "8761:8761"
@@ -20,8 +22,9 @@ services:
       - ecom-network
 
   gateway-service:
-    build: ./gateway-service
-    image: gateway-service:v1.0.0
+#    build: ./gateway-service
+#    image: gateway-service:v1.0.0
+    image: ecom-gateway-service:v1.0.${BUILD_NUMBER}
     container_name: gateway-service
     ports:
       - "8891:8891"
@@ -38,8 +41,9 @@ services:
       - ecom-network
 
   ecommerce-web:
-    build: ./e-commerce-web
-    image: ecommerce-web:v1.0.0
+#    build: ./e-commerce-web
+#    image: ecommerce-web:v1.0.0
+    image: ecom-frontend:v1.0.${BUILD_NUMBER}
     container_name: ecommerce-web
     ports:
       - "4200:4200"
@@ -49,8 +53,9 @@ services:
       - ecom-network
 
   user-service:
-    build: ./user-service
-    image: user-service:v1.0.0
+#    build: ./user-service
+#    image: user-service:v1.0.0
+    image: ecom-user-service:v1.0.${BUILD_NUMBER}
     container_name: user-service
     ports:
       - "8091:8091"
@@ -63,8 +68,9 @@ services:
       - ecom-network
 
   order-service:
-    build: ./order-service
-    image: order-service:v1.0.0
+#    build: ./order-service
+#    image: order-service:v1.0.0
+    image: ecom-order-service:v1.0.${BUILD_NUMBER}
     container_name: order-service
     ports:
       - "8084:8084"
@@ -77,8 +83,9 @@ services:
       - ecom-network
 
   category-service:
-    build: ./Category-service
-    image: category-service:v1.0.0
+#    build: ./Category-service
+#    image: category-service:v1.0.0
+    image: ecom-category-service:v1.0.${BUILD_NUMBER}
     container_name: category-service
     ports:
       - "8087:8087"
@@ -91,8 +98,9 @@ services:
       - ecom-network
 
   coupon-service:
-    build: ./coupon-service
-    image: coupon-service:v1.0.0
+#    build: ./coupon-service
+#    image: coupon-service:v1.0.0
+    image: ecom-coupon-service:v1.0.${BUILD_NUMBER}
     container_name: coupon-service
     ports:
       - "8085:8085"
@@ -106,8 +114,9 @@ services:
       - ecom-network
 
   product-service:
-    build: ./product-service
-    image: product-service:v1.0.0
+#    build: ./product-service
+#    image: product-service:v1.0.0
+    image: ecom-product-service:v1.0.${BUILD_NUMBER}
     container_name: product-service
     ports:
       - "8086:8086"
@@ -122,8 +131,9 @@ services:
       - ecom-network
 
   cart-service:
-    build: ./cart-service
-    image: cart-service:v1.0.0
+#    build: ./cart-service
+#    image: cart-service:v1.0.0
+    image: ecom-cart-service:v1.0.${BUILD_NUMBER}
     container_name: cart-service
     ports:
       - "8089:8089"
@@ -139,8 +149,9 @@ services:
       - ecom-network
 
   review-service:
-    build: ./review-service
-    image: review-service:v1.0.0
+#    build: ./review-service
+#    image: review-service:v1.0.0
+    image: ecom-review-service:v1.0.${BUILD_NUMBER}
     container_name: review-service
     ports:
       - "8090:8090"
