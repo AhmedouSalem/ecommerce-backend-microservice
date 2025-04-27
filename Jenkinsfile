@@ -143,6 +143,16 @@ pipeline {
     		}
 		}
 
+		stage('Docker Compose Down') {
+			steps {
+				echo "🛑 Arrêt des anciens conteneurs..."
+                sh '''
+            		docker-compose -f docker-compose.yml down
+            		docker-compose -f docker-compose-db.yml down
+        		'''
+            }
+        }
+
 		stage('Docker Compose Up') {
 			steps {
 				echo "🚀 Lancement de docker-compose build et up..."
