@@ -147,8 +147,8 @@ pipeline {
 			steps {
 				echo "🚀 Lancement de docker-compose build et up..."
                 sh '''
-                    docker-compose -f docker-compose-db.yml up -d
-                    docker-compose -f docker-compose.yml up -d
+                    docker compose -f docker-compose-db.yml up -d
+                    docker compose -f docker-compose.yml up -d
                 '''
             }
         }
