@@ -8,7 +8,8 @@ pipeline {
 
     environment {
 		DOCKER_IMAGE_PREFIX = "ecom"
-        VERSION = "v1.0.${BUILD_NUMBER}"
+    //    VERSION = "v1.0.${BUILD_NUMBER}"
+        //VERSION = "v1.0.${GIT_COMMIT}"
     }
 
     stages {
