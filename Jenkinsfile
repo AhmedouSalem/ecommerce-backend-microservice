@@ -8,7 +8,7 @@ pipeline {
 
     environment {
 		DOCKER_IMAGE_PREFIX = "ecom"
-        SERVICE_NAME = "ecommerce-web"
+        SERVICE_NAME = "frontend"
         //SERVICE_DB_NAME = "mysql-user"
     }
 
@@ -59,7 +59,7 @@ pipeline {
                 echo "🛑 Arrêt de ${SERVICE_NAME}..."
                 dir('..') {
                     sh '''
-                        docker-compose -f docker-compose.yml stop $SERVICE_NAME || true
+                        docker-compose -f docker-compose.yml stop $ecommerce-web || true
                         docker-compose -f docker-compose.yml rm $SERVICE_NAME || true
                     '''
                 }
@@ -70,7 +70,7 @@ pipeline {
             steps {
                 echo "🚀 Démarrage de ${SERVICE_NAME}..."
                 sh '''
-                    docker-compose -f docker-compose.yml up -d $SERVICE_NAME
+                    docker-compose -f docker-compose.yml up -d ecommerce-web
                 '''
             }
         }
