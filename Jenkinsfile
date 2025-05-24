@@ -8,7 +8,7 @@ pipeline {
 
     environment {
 		DOCKER_IMAGE_PREFIX = "ecom"
-        SERVICE_NAME = "frontend"
+        SERVICE_NAME = "ecommerce-web"
         //SERVICE_DB_NAME = "mysql-user"
     }
 
