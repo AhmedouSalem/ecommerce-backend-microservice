@@ -48,7 +48,7 @@ pipeline {
 				echo "🐳 Construction de l'image Docker ${DOCKER_IMAGE_PREFIX}-${SERVICE_NAME}:${VERSION}..."
                 sh '''
                     echo "Building $SERVICE_NAME..."
-                    docker build -t $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:$VERSION ./$SERVICE_NAME
+                    docker build -t $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:$VERSION ./e-commerce-web
                     docker tag $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:$VERSION $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:latest
                 '''
             }
