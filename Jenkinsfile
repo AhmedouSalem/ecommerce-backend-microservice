@@ -78,7 +78,7 @@ pipeline {
                 echo "🚀 Démarrage de ${SERVICE_NAME} et ${SERVICE_DB_NAME}..."
                 dir('..') {
                     sh '''
-                        docker compose -f docker-compose.yml -f docker-compose-db.yml up -d $SERVICE_DB_NAME $SERVICE_NAME
+                        docker-compose -f docker-compose.yml -f docker-compose-db.yml up -d $SERVICE_DB_NAME $SERVICE_NAME
                     '''
                 }
             }
