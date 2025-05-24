@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="96325a83-f31e-4f72-91bf-de542aa1ec61" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AhmedouSalem&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AhmedouSalem/ecommerce-backend-microservice.git&quot;,
+    &quot;accountId&quot;: &quot;9f304491-6f43-47c6-bea6-8de3e14d0548&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2ulC8V3obWR0bfgeo0RFkOpO8Sv" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AdminOrderControllerTest.executor": "Run",
+    "JUnit.AdminOrderServiceImplTest.executor": "Run",
+    "JUnit.AdminOrderServiceImplTest.testGetTotalOrdersForMonths.executor": "Run",
+    "JUnit.AdminProductControllerTest.executor": "Run",
+    "JUnit.AdminProductServiceImplTest.executor": "Run",
+    "JUnit.AdminProductServiceImplTest.getProductById_Found.executor": "Run",
+    "JUnit.AuthControllerTest.authenticate_shouldReturn401_whenCredentialsInvalid.executor": "Run",
+    "JUnit.AuthControllerTest.executor": "Run",
+    "JUnit.AuthControllerTest.shouldCreateUserSuccessfully.executor": "Debug",
+    "JUnit.AuthControllerTest.shouldReturnNotAcceptableWhenUserExists.executor": "Run",
+    "JUnit.AuthControllerTest.signUp_shouldReturnUserDtoOnSuccess.executor": "Run",
+    "JUnit.AuthControllerTest.signup_shouldReturnCreatedUser.executor": "Run",
+    "JUnit.AuthControllerTest.testAuthenticateUser_Failure.executor": "Run",
+    "JUnit.AuthServiceImplTest.createUser_ShouldSaveUserAndCreateOrderAndReturnUserDto.executor": "Run",
+    "JUnit.AuthServiceImplTest.executor": "Run",
+    "JUnit.CartControllerTest.executor": "Run",
+    "JUnit.CartItemsRepositoryTest.executor": "Run",
+    "JUnit.CartServiceApplicationTests.executor": "Run",
+    "JUnit.CartServiceImplTest.executor": "Run",
+    "JUnit.CustomerProductServiceImplTest.executor": "Run",
+    "JUnit.FeignClientInterceptorTest.executor": "Run",
+    "JUnit.JwtRequestFilterIntegrationTest.executor": "Run",
+    "JUnit.JwtRequestFilterTest.executor": "Run",
+    "JUnit.JwtUtilTest.executor": "Run",
+    "JUnit.OrderControllerTest.executor": "Run",
+    "JUnit.OrderRepositoryTest.executor": "Run",
+    "JUnit.OrderServiceApplicationTests.executor": "Run",
+    "JUnit.OrderServiceGlobalIntegrationTest.executor": "Run",
+    "JUnit.OrderServiceIntegrationTest.executor": "Run",
+    "JUnit.ReviewControllerTest.executor": "Run",
+    "JUnit.ReviewControllerTest.testGetOrderedProductDetailsByOrderId_notFound.executor": "Run",
+    "JUnit.ReviewRepositoryTest.executor": "Run",
+    "JUnit.ReviewServiceImplTest.executor": "Run",
+    "JUnit.SecurityConfigTest.executor": "Run",
+    "JUnit.UserDetailsServiceImplTest.executor": "Run",
+    "JUnit.UserRepositoryTest.executor": "Run",
+    "JUnit.UserServiceApplicationTests.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.getUserById_shouldReturnUserDto.executor": "Run",
+    "Maven.Category-service [test].executor": "Run",
+    "Maven.cart-service [clean,verify].executor": "Run",
+    "Maven.cart-service [site].executor": "Run",
+    "Maven.cart-service [verify].executor": "Run",
+    "Maven.config-service [install].executor": "Run",
+    "Maven.coupon-service [test].executor": "Run",
+    "Maven.order-service [clean,install].executor": "Run",
+    "Maven.order-service [test].executor": "Run",
+    "Maven.product-service [clean].executor": "Run",
+    "Maven.product-service [install].executor": "Run",
+    "Maven.product-service [test].executor": "Run",
+    "Maven.user-service [clean,install].executor": "Run",
+    "Maven.user-service [clean,verify].executor": "Run",
+    "Maven.user-service [site].executor": "Run",
+    "Maven.user-service [test].executor": "Run",
+    "Maven.user-service [verify].executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AnalyticsServiceApplication.executor": "Run",
+    "Spring Boot.CartServiceApplication.executor": "Run",
+    "Spring Boot.CategoryServiceApplication.executor": "Run",
+    "Spring Boot.ConfigServiceApplication.executor": "Run",
+    "Spring Boot.CouponServiceApplication.executor": "Run",
+    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+    "Spring Boot.EcommerceBackendMicroservicesApplication.executor": "Run",
+    "Spring Boot.GatewayServiceApplication.executor": "Run",
+    "Spring Boot.OrderServiceApplication.executor": "Run",
+    "Spring Boot.ProductServiceApplication.executor": "Run",
+    "Spring Boot.ReviewServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "user-service",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/ahmedou-salem/master/mobile-projects/Educonnect_Back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "ts.external.directory.path": "/home/ahmedou-salem/IdeaProjects/ecommerce-backend-microservices/e-commerce-web/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cart-service/src/test" />
+      <recent name="$PROJECT_DIR$/Category-service/src/test" />
+      <recent name="$PROJECT_DIR$/coupon-service/src/test" />
+      <recent name="$PROJECT_DIR$/order-service/src/test" />
+      <recent name="$PROJECT_DIR$/product-service/src/test" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.aryan.productservice.dto" />
+      <recent name="com.aryan.productservice.repository" />
+      <recent name="com.aryan.reviewservice.repository" />
+      <recent name="com.aryan.reviewservice.dto" />
+      <recent name="com.aryan.reviewservice.controller.customer" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.CartServiceApplicationTests">
+    <configuration name="CartServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cart-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aryan.cartservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aryan.cartservice" />
+      <option name="MAIN_CLASS_NAME" value="com.aryan.cartservice.CartServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeignClientInterceptorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aryan.orderservice.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aryan.orderservice.config" />
+      <option name="MAIN_CLASS_NAME" value="com.aryan.orderservice.config.FeignClientInterceptorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aryan.orderservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aryan.orderservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.aryan.orderservice.controller.OrderControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aryan.orderservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aryan.orderservice" />
+      <option name="MAIN_CLASS_NAME" value="com.aryan.orderservice.OrderServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aryan.userservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.aryan.userservice" />
+      <option name="MAIN_CLASS_NAME" value="com.aryan.userservice.UserServiceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular Application (e-commerce-web)" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="CartServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="cart-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.cartservice.CartServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CategoryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Category-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.categoryservice.CategoryServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.configservice.ConfigServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CouponServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="coupon-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.couponservice.CouponServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscoveryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="discovery-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.discoveryservice.DiscoveryServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EcommerceBackendMicroservicesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ecommerce-backend-microservices" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.ecom.EcommerceBackendMicroservicesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.gatewayservice.GatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.orderservice.OrderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="product-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.productservice.ProductServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="review-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.reviewservice.ReviewServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aryan.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server (e-commerce-web)" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/e-commerce-web/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application (e-commerce-web)" />
+      <item itemvalue="JUnit.CartServiceApplicationTests" />
+      <item itemvalue="JUnit.FeignClientInterceptorTest" />
+      <item itemvalue="JUnit.OrderControllerTest" />
+      <item itemvalue="JUnit.OrderServiceApplicationTests" />
+      <item itemvalue="JUnit.UserServiceApplicationTests" />
+      <item itemvalue="npm.Angular CLI Server (e-commerce-web)" />
+      <item itemvalue="Spring Boot.CartServiceApplication" />
+      <item itemvalue="Spring Boot.CategoryServiceApplication" />
+      <item itemvalue="Spring Boot.ConfigServiceApplication" />
+      <item itemvalue="Spring Boot.CouponServiceApplication" />
+      <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
+      <item itemvalue="Spring Boot.EcommerceBackendMicroservicesApplication" />
+      <item itemvalue="Spring Boot.GatewayServiceApplication" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.ProductServiceApplication" />
+      <item itemvalue="Spring Boot.ReviewServiceApplication" />
+      <item itemvalue="Spring Boot.UserServiceApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CartServiceApplicationTests" />
+        <item itemvalue="JUnit.UserServiceApplicationTests" />
+        <item itemvalue="JUnit.OrderServiceApplicationTests" />
+        <item itemvalue="JUnit.FeignClientInterceptorTest" />
+        <item itemvalue="JUnit.OrderControllerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96325a83-f31e-4f72-91bf-de542aa1ec61" name="Changes" comment="" />
+      <created>1742813616622</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742813616622</updated>
+      <workItem from="1742813617858" duration="15882000" />
+      <workItem from="1742987489030" duration="26288000" />
+      <workItem from="1743078111860" duration="17000" />
+      <workItem from="1743244899198" duration="12877000" />
+      <workItem from="1743328648476" duration="22824000" />
+      <workItem from="1743421313693" duration="589000" />
+      <workItem from="1743422199085" duration="29056000" />
+      <workItem from="1743502261690" duration="9268000" />
+      <workItem from="1743532924212" duration="14328000" />
+      <workItem from="1743603570576" duration="24281000" />
+      <workItem from="1743675731038" duration="2651000" />
+      <workItem from="1743796090769" duration="8505000" />
+      <workItem from="1743846423645" duration="8836000" />
+      <workItem from="1744036462951" duration="409000" />
+      <workItem from="1744115225298" duration="928000" />
+      <workItem from="1744277264301" duration="644000" />
+      <workItem from="1744629682282" duration="6515000" />
+      <workItem from="1744639108927" duration="4472000" />
+      <workItem from="1744723606602" duration="3046000" />
+      <workItem from="1744726665593" duration="11475000" />
+      <workItem from="1744812187936" duration="13982000" />
+      <workItem from="1744873324974" duration="1622000" />
+      <workItem from="1744875463571" duration="267000" />
+      <workItem from="1744884132942" duration="162000" />
+      <workItem from="1744990320935" duration="16610000" />
+      <workItem from="1745174653036" duration="7000" />
+      <workItem from="1745270812471" duration="773000" />
+      <workItem from="1745407571422" duration="28255000" />
+      <workItem from="1745587078191" duration="6383000" />
+      <workItem from="1745597582067" duration="114000" />
+      <workItem from="1745597720660" duration="18000" />
+      <workItem from="1745597747063" duration="1821000" />
+      <workItem from="1745661853176" duration="16381000" />
+      <workItem from="1745688796062" duration="7482000" />
+      <workItem from="1745699061001" duration="621000" />
+      <workItem from="1745700355928" duration="4780000" />
+      <workItem from="1745756146040" duration="10531000" />
+      <workItem from="1745770019601" duration="1752000" />
+      <workItem from="1745782245372" duration="713000" />
+      <workItem from="1745795611495" duration="1163000" />
+      <workItem from="1745954298327" duration="151000" />
+      <workItem from="1746218129391" duration="9085000" />
+      <workItem from="1746389277726" duration="625000" />
+      <workItem from="1746785905610" duration="814000" />
+      <workItem from="1746795802488" duration="9000" />
+      <workItem from="1747814087329" duration="1803000" />
+      <workItem from="1747818355551" duration="626000" />
+      <workItem from="1747819001103" duration="23000" />
+      <workItem from="1747845886342" duration="19000" />
+      <workItem from="1748019682188" duration="7153000" />
+      <workItem from="1748027031554" duration="4906000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Jenkinsfile" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
