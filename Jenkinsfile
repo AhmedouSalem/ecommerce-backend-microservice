@@ -65,8 +65,8 @@ pipeline {
                 echo "🛑 Arrêt de ${SERVICE_NAME}..."
                 dir('..') {
                     sh '''
-                        docker-compose -f docker-compose.yml -f $SERVICE_NAME || true
-                        docker-compose -f docker-compose.yml -f $SERVICE_NAME || true
+                        docker-compose -f docker-compose.yml stop $SERVICE_NAME || true
+                        docker-compose -f docker-compose.yml rm $SERVICE_NAME || true
                     '''
                 }
             }
