@@ -8,7 +8,7 @@ pipeline {
     environment {
 		DOCKER_IMAGE_PREFIX = "ecom"
         SERVICE_NAME = "user-service"
-        SERVICE_DB_NAME = "user-service-db"
+        SERVICE_DB_NAME = "mysql-user"
     }
 
     stages {
