@@ -32,8 +32,10 @@ pipeline {
 
         stage('Build & Test') {
 			steps {
-				echo "🏗️ Build Maven + Tests unitaires..."
-                sh 'mvn clean install -DskipTests=false'
+				dir("${SERVICE_NAME}") {
+				    echo "🏗️ Build Maven + Tests unitaires..."
+                    sh 'mvn clean install -DskipTests=false'
+				}
             }
         }
 
@@ -41,7 +43,9 @@ pipeline {
 			steps {
 				echo "🔎 Analyse SonarQube..."
                 withSonarQubeEnv('SonarQube') {
-					sh 'mvn sonar:sonar'
+				    dir("${SERVICE_NAME}") {
+					    sh 'mvn sonar:sonar'
+				    }
                 }
             }
         }
@@ -51,7 +55,7 @@ pipeline {
 				echo "🐳 Construction de l'image Docker ${DOCKER_IMAGE_PREFIX}-${SERVICE_NAME}:${VERSION}..."
                 sh '''
                     echo "Building $SERVICE_NAME..."
-                    docker build -t $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:$VERSION .
+                    docker build -t $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:$VERSION ./$SERVICE_NAME
                     docker tag $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:$VERSION $DOCKER_IMAGE_PREFIX-$SERVICE_NAME:latest
                 '''
             }
