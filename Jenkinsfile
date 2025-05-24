@@ -3,6 +3,7 @@ pipeline {
 
     tools {
 		maven 'Maven_3'
+        nodejs 'Node_23'
     }
 
     environment {
@@ -69,7 +70,7 @@ pipeline {
             steps {
                 echo "🚀 Démarrage de ${SERVICE_NAME}..."
                 sh '''
-                    docker-compose -f docker-compose.yml -d $SERVICE_NAME
+                    docker-compose -f docker-compose.yml up -d $SERVICE_NAME
                 '''
             }
         }
