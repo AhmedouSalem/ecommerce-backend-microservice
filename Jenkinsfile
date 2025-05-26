@@ -66,7 +66,7 @@ pipeline {
                 dir('..') {
                     sh '''
                         docker-compose -f docker-compose.yml stop $SERVICE_NAME || true
-                        docker-compose -f docker-compose.yml rm $SERVICE_NAME || true
+                        docker-compose -f docker-compose.yml rm -f -s $SERVICE_NAME || true
                     '''
                 }
             }
