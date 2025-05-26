@@ -63,12 +63,10 @@ pipeline {
         stage('Docker Compose Down') {
             steps {
                 echo "🛑 Arrêt de ${SERVICE_NAME}..."
-                dir('..') {
                     sh '''
                         docker-compose -f docker-compose.yml stop $SERVICE_NAME || true
                         docker-compose -f docker-compose.yml rm -f -s $SERVICE_NAME || true
                     '''
-                }
             }
         }
 
