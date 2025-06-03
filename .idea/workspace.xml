@@ -112,6 +112,8 @@
     "Maven.cart-service [verify].executor": "Run",
     "Maven.config-service [install].executor": "Run",
     "Maven.coupon-service [test].executor": "Run",
+    "Maven.gateway-service [clean].executor": "Run",
+    "Maven.gateway-service [install].executor": "Run",
     "Maven.order-service [clean,install].executor": "Run",
     "Maven.order-service [test].executor": "Run",
     "Maven.product-service [clean].executor": "Run",
@@ -122,6 +124,7 @@
     "Maven.user-service [site].executor": "Run",
     "Maven.user-service [test].executor": "Run",
     "Maven.user-service [verify].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
     "Notification.DoNotAsk-Database detector": "true",
     "RequestMappingsPanelOrder0": "0",
@@ -143,15 +146,18 @@
     "Spring Boot.ReviewServiceApplication.executor": "Run",
     "Spring Boot.UserServiceApplication.executor": "Run",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "gateway-service",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/ahmedou-salem/master/mobile-projects/Educonnect_Back",
+    "last_opened_file_path": "/home/ahmedou-salem/IdeaProjects/ecommerce-backend-microservices/gateway-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "ts.external.directory.path": "/home/ahmedou-salem/IdeaProjects/ecommerce-backend-microservices/e-commerce-web/node_modules/typescript/lib",
@@ -458,7 +464,8 @@
       <workItem from="1747819001103" duration="23000" />
       <workItem from="1747845886342" duration="19000" />
       <workItem from="1748019682188" duration="7153000" />
-      <workItem from="1748027031554" duration="8313000" />
+      <workItem from="1748027031554" duration="8983000" />
+      <workItem from="1748944202848" duration="3252000" />
     </task>
     <servers />
   </component>
